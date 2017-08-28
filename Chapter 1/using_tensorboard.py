@@ -8,7 +8,7 @@ y = tf.Variable(a+b*2,name='y')
 model = tf.initialize_all_variables()
 
 with tf.Session() as session:
-    merged = tf.merge_all_summaries()
+    merged = tf.summary.merge_all()#new function name
     writer = tf.train.SummaryWriter("/tmp/tensorflowlogs",session.graph)
     session.run(model)
     print(session.run(y))
