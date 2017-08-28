@@ -9,9 +9,11 @@ model = tf.initialize_all_variables()
 
 with tf.Session() as session:
     merged = tf.summary.merge_all()#new function name
-    writer = tf.train.SummaryWriter("/tmp/tensorflowlogs",session.graph)
+    writer = tf.summary.FileWriter("/tmp/tensorflowlogs",session.graph)
     session.run(model)
     print(session.run(y))
+ 
+#在CMD用...執行： tensorboard --logdir=/tmp/tensorflowlogs
 
 
 
